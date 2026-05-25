@@ -47,10 +47,14 @@ class User extends Authenticatable
     ];
 
     public function getProfilePictureUrlAttribute()
-{
-    return $this->profile_picture
-        ? asset('storage/' . $this->profile_picture)
-        : asset('default-profile.png'); // Default jika tidak ada foto
-}
+    {
+        return $this->profile_picture
+            ? asset('storage/' . $this->profile_picture)
+            : asset('default-profile.png'); // Default jika tidak ada foto
+    }
 
+    public function userMisi()
+    {
+        return $this->hasMany(UserMisi::class);
+    }
 }

@@ -69,6 +69,12 @@ Route::get('/test', function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/gamification', [GamificationController::class, 'show']);
     Route::put('/gamification', [GamificationController::class, 'update']);
+    
+    // Auto Missions & Completion (Gamification)
+    Route::post('/user/misi/auto', [MisiController::class, 'createAutoMission']);
+    Route::get('/user/misi/active', [MisiController::class, 'getActiveMissionByParameter']);
+    Route::patch('/user/misi/{id}/complete', [MisiController::class, 'completeMission']);
+    Route::delete('/user/misi/auto/cleanup', [MisiController::class, 'cleanupExpiredMissions']);
 });
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index']);
