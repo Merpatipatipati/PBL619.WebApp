@@ -44,7 +44,7 @@ Route::get('/sensor-data', [SensorDataController::class, 'index']);
 Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
 
-Route::prefix('user')->group(function () {
+Route::middleware('auth:sanctum')->prefix('user')->group(function () {
     // Route Panduan 
     Route::get('/panduan', [PanduanController::class, 'getAllPanduan']);
     Route::get('/panduan/{id}', [PanduanController::class, 'getPanduanDetail']);
