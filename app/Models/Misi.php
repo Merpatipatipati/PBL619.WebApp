@@ -14,13 +14,18 @@ class Misi extends Model
     protected $primaryKey = 'id_misi';
 
     protected $fillable = [
-    'id_admin',
-    'nama_misi',
-    'deskripsi_misi',
-    'status_misi',
-    'tipe_misi', 
-    'poin',
-];
+        'id_admin',
+        'nama_misi',
+        'deskripsi_misi',
+        'status_misi',
+        'tipe_misi',
+        'poin',
+        'tipe_trigger',
+        'kondisi_parameter',
+        'nilai_min',
+        'nilai_max',
+        'durasi_hari',
+    ];
 
 
     public function admin()
